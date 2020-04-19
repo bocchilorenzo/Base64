@@ -1,3 +1,4 @@
+//Controllare codifica del testo??
 function encode() {
     var str = document.getElementById("text").value;
     document.getElementById("result").value = Base64.encode(str);
