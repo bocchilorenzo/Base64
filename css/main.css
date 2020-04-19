@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+html {
+    min-height: 100%;
+    position  : relative;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+textarea {
+    width     : 100%;
+    min-height: 200px;
+    resize    : vertical;
+}
+
+#btn,
+.switch {
+    padding: 10px;
+}
+
+#btn {
+    margin-bottom: 100px;
+}
+
+footer {
+    width   : 100%;
+    position: absolute;
+    bottom  : 0;
+    left    : 0;
+}
