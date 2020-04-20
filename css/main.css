@@ -13,11 +13,7 @@ textarea {
     width     : 100%;
     min-height: 200px;
     resize    : vertical;
-}
-
-#btn,
-.switch {
-    padding: 10px;
+    border    : 1px solid #1de9b6;
 }
 
 #btn {
