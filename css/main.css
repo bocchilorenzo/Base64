@@ -16,13 +16,21 @@ textarea {
     border    : 1px solid #1de9b6;
 }
 
-#btn {
-    margin-bottom: 100px;
-}
-
 footer {
     width   : 100%;
     position: absolute;
     bottom  : 0;
     left    : 0;
+}
+
+#encodeDiv {
+    display: block;
+}
+
+#decodeDiv {
+    display: none;
+}
+
+#last {
+    margin-bottom: 70px;
 }

@@ -31,16 +31,27 @@
     <!--MAIN-->
     <div class="container">
         <div class="row section">
-            <div class="col s12 m6">
-                <p>Input text</p>
-                <textarea name="text" id="text"></textarea>
+            <div id="encodeDiv">
+                <div class="col s12 m6">
+                    <p>Input text</p>
+                    <textarea name="text" id="text"></textarea>
+                </div>
+                <div class="col s12 m6">
+                    <p>Output text</p>
+                    <textarea name="result" id="result"></textarea>
+                </div>
             </div>
-            <div class="col s12 m6">
-                <p>Output text</p>
-                <textarea name="result" id="result"></textarea>
+            <div id="decodeDiv">
+                <div class="col s12 m6">
+                    <p>Input text</p>
+                    <textarea name="text2" id="text2"></textarea>
+                </div>
+                <div class="col s12 m6">
+                    <p>Output text</p>
+                    <textarea name="result2" id="result2"></textarea>
+                </div>
             </div>
         </div>
-        <!--
         <div class="row">
             <div class="col s12">
                 <div class="switch">
@@ -52,10 +63,16 @@
                 </div>
             </div>
         </div>
-    -->
         <div class="row" id="btn">
             <div class="col s12">
                 <a class="waves-effect waves-light btn " id="encode">encode</a>
+            </div>
+        </div>
+        <div class="row" id="last">
+            <div class="col s12">
+                <p>This encoder/decoder is compatible with UTF-8 characters and uses the <a
+                        href="https://github.com/anonyco/BestBase64EncoderDecoder"
+                        target="_blank">BestBase64EncoderDecoder</a> library.</p>
             </div>
         </div>
     </div>
@@ -73,9 +90,9 @@
         </div>
     </footer>
 
-
     <!--SCRIPT-->
-    <script defer="" src="https://dl.dropboxusercontent.com/s/uo9kbpolhnat1cg/atobAndBtoaTogether.min.js?dl=0" type="text/javascript"></script>
+    <script defer="" src="https://dl.dropboxusercontent.com/s/uo9kbpolhnat1cg/atobAndBtoaTogether.min.js?dl=0"
+        type="text/javascript"></script>
     <script src='js/main.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
