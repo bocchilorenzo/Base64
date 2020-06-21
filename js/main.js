@@ -3,12 +3,12 @@ var eventEncode = true;
 
 function encode() {
     var str = document.getElementById("text").value;
-    document.getElementById("result").value = btoaUTF8(str, autoBOMit = false);
+    document.getElementById("result").value = converter.base64Encode(str);
 }
 
 function decode() {
     var str = document.getElementById("text2").value;
-    document.getElementById("result2").value = atobUTF8(str, keepBOM = false);
+    document.getElementById("result2").value = converter.base64Decode(str);
 }
 
 function liveEncodeDecode(mode) {
