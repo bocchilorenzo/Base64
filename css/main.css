@@ -13,7 +13,7 @@ textarea {
     width     : 100%;
     min-height: 200px;
     resize    : vertical;
-    border    : 1px solid #1de9b6;
+    border    : 1px solid #26a69a;
 }
 
 footer {
@@ -33,4 +33,12 @@ footer {
 
 #last {
     margin-bottom: 70px;
+}
+
+.darkTheme {
+    background-color: #111413 !important;
+}
+
+.darkTheme * {
+    color: white;
 }

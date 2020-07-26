@@ -9,6 +9,7 @@
     <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="description" content="Base64 text encoder and decoder with a Material theme">
     <meta name="keywords" content="base64, encode, decode, online, free, characters, converter, encryption, generator">
 </head>
@@ -18,6 +19,11 @@
     <nav class="nav-extended">
         <div class="nav-wrapper teal lighten-1">
             <a href="#" class="brand-logo">&nbsp; Base64</a>
+            <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#" onclick="toggleTheme();"><i class="material-icons left">brightness_medium</i>Toggle
+                        theme</a></li>
+            </ul>
         </div>
         <div class="nav-content teal lighten-1">
             <ul class="tabs tabs-transparent">
@@ -26,6 +32,10 @@
             </ul>
         </div>
     </nav>
+    <ul class="sidenav" id="mobile">
+        <li><a href="#" onclick="toggleTheme();"><i class="material-icons left">brightness_medium</i>Toggle
+                theme</a></li>
+    </ul>
 
     <!--MAIN-->
     <div class="container">
@@ -70,8 +80,7 @@
         <div class="row" id="last">
             <div class="col s12">
                 <p>This encoder/decoder is compatible with UTF-8 characters and uses ony3000's library <a
-                        href="https://github.com/ony3000/base64-converter"
-                        target="_blank">base64-converter</a></p>
+                        href="https://github.com/ony3000/base64-converter" target="_blank">base64-converter</a></p>
             </div>
         </div>
     </div>

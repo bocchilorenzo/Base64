@@ -74,6 +74,25 @@ function switchEncodeDecode(clicked, mode) {
     }
 }
 
+function themeSet() {
+    let theme = localStorage.getItem('theme');
+    if (theme == "dark") {
+        document.getElementsByTagName("body")[0].classList.add("darkTheme");
+    }
+}
+
+function toggleTheme() {
+    let theme = localStorage.getItem('theme');
+    if (theme == "light" || theme == null) {
+        localStorage.setItem('theme', 'dark');
+        document.getElementsByTagName("body")[0].classList.add("darkTheme");
+    }
+    else {
+        localStorage.setItem('theme', 'light');
+        document.getElementsByTagName("body")[0].classList.remove("darkTheme");
+    }
+}
+
 function clearFields() {
     document.getElementById("text").value = "";
     document.getElementById("result").value = "";
@@ -81,7 +100,13 @@ function clearFields() {
     document.getElementById("result2").value = "";
     document.getElementById("live").checked = false;
     liveEncodeDecode("e");
+    themeSet();
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems);
+});
 
 window.addEventListener("load", clearFields);
 document.getElementById("live").addEventListener("click", function () { liveEncodeDecode("e"); });
