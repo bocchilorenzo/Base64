@@ -46,8 +46,13 @@
                     <textarea name="text" id="text"></textarea>
                 </div>
                 <div class="col s12 m6">
-                    <p>Output text</p>
-                    <textarea name="result" id="result"></textarea>
+                    <div class="outputHeading">
+                        <p>Encoded output</p>
+                        <a class="waves-effect waves-light btn-small" onclick="copy('e');"><i class="material-icons left">content_copy</i>
+                            Copy</a>
+                    </div>
+                    <div class="resultContainer" name="result" id="result">
+                    </div>
                 </div>
             </div>
             <div id="decodeDiv">
@@ -56,8 +61,12 @@
                     <textarea name="text2" id="text2"></textarea>
                 </div>
                 <div class="col s12 m6">
-                    <p>Output text</p>
-                    <textarea name="result2" id="result2"></textarea>
+                    <div class="outputHeading">
+                        <p>Decoded output</p>
+                        <a class="waves-effect waves-light btn-small" onclick="copy('d');"><i class="material-icons left">content_copy</i>
+                            Copy</a>
+                    </div>
+                    <div class="resultContainer" name="result2" id="result2"></div>
                 </div>
             </div>
         </div>
@@ -100,6 +109,7 @@
 
     <!--SCRIPT-->
     <script src="https://unpkg.com/@ony3000/base64-converter@1.0.0/dist/converter.js"></script>
+    <script src='js/anchorme.min.js'></script>
     <script src='js/main.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>

@@ -3,12 +3,22 @@ var eventEncode = true;
 
 function encode() {
     var str = document.getElementById("text").value;
-    document.getElementById("result").value = converter.base64Encode(str);
+    document.getElementById("result").innerHTML = converter.base64Encode(str);
 }
 
 function decode() {
-    var str = document.getElementById("text2").value;
-    document.getElementById("result2").value = converter.base64Decode(str);
+    document.getElementById("result2").innerHTML = anchorme({
+        input: converter.base64Decode(document.getElementById("text2").value),
+        // use some options
+        options: {
+            attributes: {
+                target: "_blank"
+            },
+            truncate: 40,
+            // characters will be taken out of the middle
+            endTruncation: true
+        },
+    });
 }
 
 function liveEncodeDecode(mode) {
@@ -29,7 +39,6 @@ function liveEncodeDecode(mode) {
         }
     }
 }
-
 
 function switchEncodeDecode(clicked, mode) {
     clearFields();
@@ -95,13 +104,35 @@ function toggleTheme() {
 
 function clearFields() {
     document.getElementById("text").value = "";
-    document.getElementById("result").value = "";
+    document.getElementById("result").innerHTML = "";
     document.getElementById("text2").value = "";
-    document.getElementById("result2").value = "";
+    document.getElementById("result2").innerHTML = "";
     document.getElementById("live").checked = false;
     liveEncodeDecode("e");
     themeSet();
 }
+
+function copy(mode) {
+    if (mode == 'e') {
+        navigator.clipboard.writeText(document.getElementById("result").innerHTML)
+            .then(() => {
+                M.toast({ html: 'Copied!', displayLength: 2000 })
+            })
+            .catch(err => {
+                console.log('Something went wrong', err);
+            });
+    }
+    else {
+        navigator.clipboard.writeText(converter.base64Decode(document.getElementById("text2").value))
+            .then(() => {
+                M.toast({ html: 'Copied!', displayLength: 2000 })
+            })
+            .catch(err => {
+                console.log('Something went wrong', err);
+            });
+    }
+}
+
 
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.sidenav');
