@@ -93,13 +93,21 @@ function themeSet() {
 function toggleTheme() {
     let theme = localStorage.getItem('theme');
     if (theme == "light" || theme == null) {
-        localStorage.setItem('theme', 'dark');
-        document.getElementsByTagName("body")[0].classList.add("darkTheme");
+        dark();
     }
     else {
-        localStorage.setItem('theme', 'light');
-        document.getElementsByTagName("body")[0].classList.remove("darkTheme");
+        light();
     }
+}
+
+function dark() {
+    localStorage.setItem('theme', 'dark');
+    document.getElementsByTagName("body")[0].classList.add("darkTheme");
+}
+
+function light() {
+    localStorage.setItem('theme', 'light');
+    document.getElementsByTagName("body")[0].classList.remove("darkTheme");
 }
 
 function clearFields() {
@@ -113,30 +121,32 @@ function clearFields() {
 }
 
 function copy(mode) {
+    var copyText = ""
     if (mode == 'e') {
-        navigator.clipboard.writeText(document.getElementById("result").innerHTML)
-            .then(() => {
-                M.toast({ html: 'Copied!', displayLength: 2000 })
-            })
-            .catch(err => {
-                console.log('Something went wrong', err);
-            });
+        copyText = document.getElementById("result").innerHTML;
     }
     else {
-        navigator.clipboard.writeText(converter.base64Decode(document.getElementById("text2").value))
-            .then(() => {
-                M.toast({ html: 'Copied!', displayLength: 2000 })
-            })
-            .catch(err => {
-                console.log('Something went wrong', err);
-            });
+        copyText = converter.base64Decode(document.getElementById("text2").value);
     }
+    var tmp = document.createElement('input');
+    document.body.appendChild(tmp);
+    tmp.value = copyText;
+    tmp.select();
+    tmp.setSelectionRange(0, 99999);
+    document.execCommand("copy", false);
+    tmp.remove();
+    M.toast({ html: 'Copied!', displayLength: 2000 })
 }
+
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems);
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && localStorage.getItem('theme') == null) {
+        dark();
+    }
 });
 
 window.addEventListener("load", clearFields);
