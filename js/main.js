@@ -16,8 +16,7 @@ function decode() {
             attributes: {
                 target: "_blank"
             },
-            truncate: 40,
-            // characters will be taken out of the middle
+            //truncate: 40,
             endTruncation: true
         },
     });
