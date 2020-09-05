@@ -1,6 +1,8 @@
 //Variable used to change the eventListeners for the encode button and the "live" toggle
 var eventEncode = true;
 
+var first = 0;
+
 function encode() {
     var str = document.getElementById("text").value;
     document.getElementById("result").innerHTML = converter.base64Encode(str);
@@ -41,45 +43,36 @@ function liveEncodeDecode(mode) {
 }
 
 function switchEncodeDecode(clicked, mode) {
-    clearFields();
+    clearFields(mode);
+    document.getElementById("text2").removeEventListener("keyup", decode);
+    document.getElementById("text").removeEventListener("keyup", encode);
     var classString = clicked.children[0].className;
     if (classString != "active") {
         var newClass = classString.concat("active");
         clicked.children[0].className = newClass;
     }
+    document.getElementById("live").checked = false;
     if (mode == "e") {
-        document.getElementById("decodeTab").children[0].className = "";
+        document.getElementById("live").removeEventListener("click", function () { liveEncodeDecode("d"); });
+        document.getElementById("encode").removeEventListener("click", decode);
         document.getElementById("live").addEventListener("click", function () { liveEncodeDecode("e"); });
         document.getElementById("encode").addEventListener("click", encode);
+        document.getElementById("decodeTab").children[0].className = "";
         document.getElementById("encode").innerHTML = "encode";
         document.getElementsByClassName("switch")[0].children[0].innerHTML = "Live encode";
-        document.getElementById("live").checked = false;
         document.getElementById("decodeDiv").style.display = "none";
         document.getElementById("encodeDiv").style.display = "block";
-        if (!eventEncode) {
-            document.getElementById("live").removeEventListener("click", function () { liveEncodeDecode("d"); });
-            document.getElementById("encode").removeEventListener("click", decode);
-            document.getElementById("live").addEventListener("click", function () { liveEncodeDecode("e"); });
-            document.getElementById("encode").addEventListener("click", encode);
-            eventEncode = true;
-        }
     }
     else {
-        document.getElementById("encodeTab").children[0].className = "";
+        document.getElementById("live").removeEventListener("click", function () { liveEncodeDecode("e"); });
+        document.getElementById("encode").removeEventListener("click", encode);
         document.getElementById("live").addEventListener("click", function () { liveEncodeDecode("d"); });
         document.getElementById("encode").addEventListener("click", decode);
+        document.getElementById("encodeTab").children[0].className = "";
         document.getElementById("encode").innerHTML = "decode";
         document.getElementsByClassName("switch")[0].children[0].innerHTML = "Live decode";
-        document.getElementById("live").checked = false;
         document.getElementById("encodeDiv").style.display = "none";
         document.getElementById("decodeDiv").style.display = "block";
-        if (eventEncode) {
-            document.getElementById("live").removeEventListener("click", function () { liveEncodeDecode("e"); });
-            document.getElementById("encode").removeEventListener("click", encode);
-            document.getElementById("live").addEventListener("click", function () { liveEncodeDecode("d"); });
-            document.getElementById("encode").addEventListener("click", decode);
-            eventEncode = false;
-        }
     }
 }
 
@@ -110,14 +103,16 @@ function light() {
     document.getElementsByTagName("body")[0].classList.remove("darkTheme");
 }
 
-function clearFields() {
+function clearFields(mode) {
     document.getElementById("text").value = "";
     document.getElementById("result").innerHTML = "";
     document.getElementById("text2").value = "";
     document.getElementById("result2").innerHTML = "";
-    document.getElementById("live").checked = false;
-    liveEncodeDecode("e");
-    themeSet();
+    liveEncodeDecode(mode);
+    if (first == 0) {
+        themeSet();
+        first++;
+    }
 }
 
 function copy(mode) {
@@ -138,9 +133,6 @@ function copy(mode) {
     M.toast({ html: 'Copied!', displayLength: 2000 })
 }
 
-
-
-
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems);
@@ -149,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-window.addEventListener("load", clearFields);
+window.addEventListener("load", function () { clearFields("e"); });
 document.getElementById("live").addEventListener("click", function () { liveEncodeDecode("e"); });
 document.getElementById("encode").addEventListener("click", encode);
 document.getElementById("encodeTab").addEventListener("click", function () { switchEncodeDecode(this, "e"); });
