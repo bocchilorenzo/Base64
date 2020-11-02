@@ -6,13 +6,13 @@ var first = 0;
 function unescape(str) {
     return (str + '==='.slice((str.length + 3) % 4))
         .replace(/-/g, '+')
-        .replace(/_/g, '/')
+        .replace(/_/g, '/');
 }
 
 function escape(str) {
     return str.replace(/\+/g, '-')
         .replace(/\//g, '_')
-        .replace(/=/g, '')
+        .replace(/=/g, '');
 }
 
 function encodeUrl() {
@@ -59,12 +59,12 @@ function liveEncodeDecode(mode) {
             if (document.getElementById("url").checked) {
                 document.getElementById("text").removeEventListener("keyup", encode);
                 document.getElementById("text").addEventListener("keyup", encodeUrl);
-                encodeUrl()
+                encodeUrl();
             }
             else {
                 document.getElementById("text").removeEventListener("keyup", encodeUrl);
                 document.getElementById("text").addEventListener("keyup", encode);
-                encode()
+                encode();
             }
         }
         else {
@@ -77,12 +77,12 @@ function liveEncodeDecode(mode) {
             if (document.getElementById("url").checked) {
                 document.getElementById("text2").removeEventListener("keyup", decode);
                 document.getElementById("text2").addEventListener("keyup", decodeUrl);
-                decodeUrl()
+                decodeUrl();
             }
             else {
                 document.getElementById("text2").removeEventListener("keyup", decodeUrl);
                 document.getElementById("text2").addEventListener("keyup", decode);
-                decode()
+                decode();
             }
         }
         else {
@@ -140,7 +140,7 @@ function switchEncodeDecode(clicked, mode) {
         document.getElementsByClassName("switch")[0].children[0].innerHTML = "Live encode";
         document.getElementById("decodeDiv").style.display = "none";
         document.getElementById("encodeDiv").style.display = "block";
-        liveEncodeDecode("e")
+        liveEncodeDecode("e");
     }
     else {
         document.getElementById("live").removeEventListener("click", function () { liveEncodeDecode("e"); });
@@ -154,7 +154,7 @@ function switchEncodeDecode(clicked, mode) {
         document.getElementsByClassName("switch")[0].children[0].innerHTML = "Live decode";
         document.getElementById("encodeDiv").style.display = "none";
         document.getElementById("decodeDiv").style.display = "block";
-        liveEncodeDecode("d")
+        liveEncodeDecode("d");
     }
 }
 
@@ -198,7 +198,7 @@ function clearFields(mode) {
 }
 
 function copy(mode) {
-    var copyText = ""
+    var copyText = "";
     if (mode == 'e') {
         copyText = document.getElementById("result").innerHTML;
     }
