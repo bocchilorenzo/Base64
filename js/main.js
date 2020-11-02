@@ -118,7 +118,7 @@ function urlEncodeDecode(mode) {
 }
 
 function switchEncodeDecode(clicked, mode) {
-    clearFields(mode);
+    clearFields();
     document.getElementById("text2").removeEventListener("keyup", decode);
     document.getElementById("text").removeEventListener("keyup", encode);
     var classString = clicked.children[0].className;
@@ -137,7 +137,7 @@ function switchEncodeDecode(clicked, mode) {
         document.getElementById("encode").addEventListener("click", encode);
         document.getElementById("decodeTab").children[0].className = "";
         document.getElementById("encode").innerHTML = "encode";
-        document.getElementsByClassName("switch")[0].children[0].innerHTML = "Live encode";
+        document.getElementsByClassName("switch")[0].children[0].innerHTML = "Live encode&nbsp;&nbsp;";
         document.getElementById("decodeDiv").style.display = "none";
         document.getElementById("encodeDiv").style.display = "block";
         liveEncodeDecode("e");
@@ -151,7 +151,7 @@ function switchEncodeDecode(clicked, mode) {
         document.getElementById("encode").addEventListener("click", decode);
         document.getElementById("encodeTab").children[0].className = "";
         document.getElementById("encode").innerHTML = "decode";
-        document.getElementsByClassName("switch")[0].children[0].innerHTML = "Live decode";
+        document.getElementsByClassName("switch")[0].children[0].innerHTML = "Live decode&nbsp;&nbsp;";
         document.getElementById("encodeDiv").style.display = "none";
         document.getElementById("decodeDiv").style.display = "block";
         liveEncodeDecode("d");
@@ -190,7 +190,6 @@ function clearFields(mode) {
     document.getElementById("result").innerHTML = "";
     document.getElementById("text2").value = "";
     document.getElementById("result2").innerHTML = "";
-    liveEncodeDecode(mode);
     if (first == 0) {
         themeSet();
         first++;

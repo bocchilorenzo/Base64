@@ -16,23 +16,12 @@ textarea {
     border    : 1px solid #26a69a;
 }
 
-footer {
-    width   : 100%;
-    position: absolute;
-    bottom  : 0;
-    left    : 0;
-}
-
 #encodeDiv {
     display: block;
 }
 
 #decodeDiv {
     display: none;
-}
-
-#last {
-    margin-bottom: 70px;
 }
 
 .darkTheme,
@@ -48,7 +37,7 @@ footer {
     color: white !important;
 }
 
-#last a,
+.info a,
 .resultContainer a {
     color: #26a69a !important;
 }
@@ -82,4 +71,8 @@ footer {
     justify-content: space-between;
     align-content  : center;
     align-items    : center;
+}
+
+.container{
+    padding-bottom: 20px;
 }
