@@ -126,7 +126,7 @@ function switchEncodeDecode(clicked, mode) {
         var newClass = classString.concat("active");
         clicked.children[0].className = newClass;
     }
-    document.getElementById("live").checked = false;
+    document.getElementById("live").checked = true;
     document.getElementById("url").checked = false;
     if (mode == "e") {
         document.getElementById("live").removeEventListener("click", function () { liveEncodeDecode("d"); });
@@ -223,6 +223,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 window.addEventListener("load", function () { clearFields("e"); });
+window.addEventListener("load", function () { liveEncodeDecode("e"); });
 document.getElementById("live").addEventListener("click", function () { liveEncodeDecode("e"); });
 document.getElementById("url").addEventListener("click", function () { urlEncodeDecode("e"); });
 document.getElementById("encode").addEventListener("click", encode);
