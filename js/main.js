@@ -161,7 +161,7 @@ function switchEncodeDecode(clicked, mode) {
 function themeSet() {
     let theme = localStorage.getItem('theme');
     if (theme == "dark") {
-        document.getElementsByTagName("body")[0].classList.add("darkTheme");
+        document.getElementsByTagName("html")[0].classList.add("darkTheme");
     }
 }
 
@@ -175,14 +175,9 @@ function toggleTheme() {
     }
 }
 
-function dark() {
-    localStorage.setItem('theme', 'dark');
-    document.getElementsByTagName("body")[0].classList.add("darkTheme");
-}
-
 function light() {
     localStorage.setItem('theme', 'light');
-    document.getElementsByTagName("body")[0].classList.remove("darkTheme");
+    document.getElementsByTagName("html")[0].classList.remove("darkTheme");
 }
 
 function clearFields(mode) {
@@ -214,14 +209,10 @@ function copy(mode) {
     M.toast({ html: 'Copied!', displayLength: 2000 })
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+window.addEventListener("load", function(){
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems);
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && localStorage.getItem('theme') == null) {
-        dark();
-    }
-});
-
+})
 window.addEventListener("load", function () { clearFields("e"); });
 window.addEventListener("load", function () { liveEncodeDecode("e"); });
 document.getElementById("live").addEventListener("click", function () { liveEncodeDecode("e"); });

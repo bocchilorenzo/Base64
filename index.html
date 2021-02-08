@@ -7,6 +7,24 @@
     <title>Base64</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+    <style>
+        .hidden {
+            visibility: hidden;
+        }
+    </style>
+    <script>
+        function dark() {
+            localStorage.setItem('theme', 'dark');
+            document.getElementsByTagName("html")[0].classList.add("darkTheme");
+        }
+        document.getElementsByTagName('html')[0].classList.add('hidden');
+        if ((window.matchMedia('(prefers-color-scheme: dark)').matches && localStorage.getItem('theme') == null) || localStorage.getItem("theme") == "dark") {
+            dark();
+        }
+        document.addEventListener("readystatechange", function () {
+            document.getElementsByTagName('html')[0].classList.remove('hidden');
+        });
+    </script>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -22,6 +40,9 @@
 </head>
 
 <body>
+    <noscript>Please enable Javascript to use the website. The site's code is not malicious and, if you're still
+        concerned, it's freely reviewable <a href="https://github.com/bocchilorenzo/Base64" target="_blank">on
+            Github</a>.</noscript>
     <!--NAVBAR-->
     <nav class="nav-extended">
         <div class="nav-wrapper teal lighten-1">
@@ -44,7 +65,7 @@
     </nav>
     <ul class="sidenav" id="mobile">
         <li>
-            <a href="#" onclick="toggleTheme();">
+            <a onclick="toggleTheme();">
                 <i class="material-icons left">brightness_medium</i>
                 Toggle theme
             </a>
