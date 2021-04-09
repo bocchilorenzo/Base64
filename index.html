@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset='utf-8'>
@@ -25,9 +25,13 @@
             document.getElementsByTagName('html')[0].classList.remove('hidden');
         });
     </script>
+    <!-- Preconnection -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="description" content="Base64 text encoder and decoder with a Material theme">
     <meta name="keywords" content="base64, encode, decode, online, free, characters, converter, encryption, generator">
     <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
@@ -44,50 +48,76 @@
         concerned, it's freely reviewable <a href="https://github.com/bocchilorenzo/Base64" target="_blank">on
             Github</a>.</noscript>
     <!--NAVBAR-->
-    <nav class="nav-extended">
-        <div class="nav-wrapper teal lighten-1">
-            <a href="#" class="brand-logo">&nbsp; Base64</a>
-            <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="https://github.com/bocchilorenzo/Base64" target="_blank"><i
-                            class="material-icons">code</i></a></li>
-            </ul>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="#" onclick="toggleTheme();"><i class="material-icons">brightness_medium</i></a></li>
-            </ul>
-        </div>
-        <div class="nav-content teal lighten-1">
-            <ul class="tabs tabs-transparent">
-                <li class="tab" id="encodeTab"><a class="active">Encode</a></li>
-                <li class="tab" id="decodeTab"><a>Decode</a></li>
-            </ul>
-        </div>
-    </nav>
-    <ul class="sidenav" id="mobile">
-        <li>
-            <a onclick="toggleTheme();">
-                <i class="material-icons left">brightness_medium</i>
-                Toggle theme
-            </a>
-        </li>
-        <li><a href="https://github.com/bocchilorenzo/Base64" target="_blank"><i
-                    class="material-icons">code</i>Github</a>
-        </li>
-    </ul>
+    <header>
+        <nav class="nav-extended">
+            <div class="nav-wrapper teal lighten-1">
+                <a href="#" class="brand-logo" name="logo">&nbsp; Base64</a>
+                <a href="#" data-target="mobile" class="sidenav-trigger">
+                    <svg style="width:24px;height:64px;line-height:64px" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+                    </svg>
+                    <span class="sr-only">Menu</span>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="https://github.com/bocchilorenzo/Base64" target="_blank" rel="noreferrer">
+                            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M14.6,16.6L19.2,12L14.6,7.4L16,6L22,12L16,18L14.6,16.6M9.4,16.6L4.8,12L9.4,7.4L8,6L2,12L8,18L9.4,16.6Z" />
+                            </svg></a></li>
+                </ul>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#" onclick="toggleTheme();">
+                            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M12,18V6A6,6 0 0,1 18,12A6,6 0 0,1 12,18M20,15.31L23.31,12L20,8.69V4H15.31L12,0.69L8.69,4H4V8.69L0.69,12L4,15.31V20H8.69L12,23.31L15.31,20H20V15.31Z" />
+                            </svg></a></li>
+                </ul>
+            </div>
+            <div class="nav-content teal lighten-1">
+                <ul class="tabs tabs-transparent">
+                    <li class="tab" id="encodeTab"><a class="active">Encode</a></li>
+                    <li class="tab" id="decodeTab"><a>Decode</a></li>
+                </ul>
+            </div>
+        </nav>
+        <ul class="sidenav" id="mobile">
+            <li>
+                <a onclick="toggleTheme();">
+                    <svg style="width:24px;height:48px;line-height:48px;margin-right:32px;float:left"
+                        viewBox="0 0 24 24">
+                        <path fill="currentColor"
+                            d="M12,18V6A6,6 0 0,1 18,12A6,6 0 0,1 12,18M20,15.31L23.31,12L20,8.69V4H15.31L12,0.69L8.69,4H4V8.69L0.69,12L4,15.31V20H8.69L12,23.31L15.31,20H20V15.31Z" />
+                    </svg>
+                    Toggle theme
+                </a>
+            </li>
+            <li><a href="https://github.com/bocchilorenzo/Base64" target="_blank" rel="noreferrer">
+                    <svg style="width:24px;height:48px;line-height:48px;margin-right:32px;float:left"
+                        viewBox="0 0 24 24">
+                        <path fill="currentColor"
+                            d="M14.6,16.6L19.2,12L14.6,7.4L16,6L22,12L16,18L14.6,16.6M9.4,16.6L4.8,12L9.4,7.4L8,6L2,12L8,18L9.4,16.6Z" />
+                    </svg>Github</a>
+            </li>
+        </ul>
+    </header>
 
     <!--MAIN-->
     <div class="container">
         <div class="row section">
             <div id="encodeDiv">
                 <div class="col s12 m6">
-                    <p>Input text</p>
+                    <label for="text">Input text</label>
                     <textarea name="text" id="text"></textarea>
                 </div>
                 <div class="col s12 m6">
                     <div class="outputHeading">
                         <p>Encoded output</p>
-                        <a class="waves-effect waves-light btn-small" onclick="copy('e');"><i
-                                class="material-icons left">content_copy</i>
+                        <a class="waves-effect waves-light btn-small" onclick="copy('e');">
+                            <svg style="width:1.2rem;margin-right:15px;line-height:inherit;font-size:1.2rem;float:left;height:inherit"
+                                viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" />
+                            </svg>
                             Copy</a>
                     </div>
                     <div class="resultContainer" name="result" id="result">
@@ -96,14 +126,18 @@
             </div>
             <div id="decodeDiv">
                 <div class="col s12 m6">
-                    <p>Input text</p>
+                    <label for="text2">Input text</label>
                     <textarea name="text2" id="text2"></textarea>
                 </div>
                 <div class="col s12 m6">
                     <div class="outputHeading">
                         <p>Decoded output</p>
-                        <a class="waves-effect waves-light btn-small" onclick="copy('d');"><i
-                                class="material-icons left">content_copy</i>
+                        <a class="waves-effect waves-light btn-small" onclick="copy('d');">
+                            <svg style="width:1.2rem;margin-right:15px;line-height:inherit;font-size:1.2rem;float:left;height:inherit"
+                                viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" />
+                            </svg>
                             Copy</a>
                     </div>
                     <div class="resultContainer" name="result2" id="result2"></div>
@@ -113,7 +147,7 @@
         <div class="row">
             <div class="col s12">
                 <div class="switch">
-                    <span>Live encode&nbsp;&nbsp;</span>
+                    <label for="live">Live encode&nbsp;&nbsp;</label>
                     <label>
                         <input type="checkbox" id="live" checked>
                         <span class="lever"></span>
@@ -124,7 +158,7 @@
         <div class="row">
             <div class="col s12">
                 <div class="switch">
-                    <span>Base64 URL*</span>
+                    <label for="url">Base64 URL*</label>
                     <label>
                         <input type="checkbox" id="url">
                         <span class="lever"></span>
@@ -134,14 +168,14 @@
         </div>
         <div class="row" id="btn">
             <div class="col s12">
-                <a class="waves-effect waves-light btn " id="encode">encode</a>
+                <a class="waves-effect waves-light btn" id="encode">encode</a>
             </div>
         </div>
         <p class="info">This encoder/decoder is compatible with
-            <a href="https://en.wikipedia.org/wiki/UTF-8" target="_blank">UTF-8 characters</a>
+            <a href="https://en.wikipedia.org/wiki/UTF-8" target="_blank" rel="noreferrer">UTF-8 characters</a>
         </p>
         <p class="info">*The base64 URL toggle allows for URL compatible encoding/decoding. Read more
-            <a href="https://en.wikipedia.org/wiki/Base64#URL_applications" target="_blank">here</a>
+            <a href="https://en.wikipedia.org/wiki/Base64#URL_applications" target="_blank" rel="noreferrer">here</a>
         </p>
     </div>
 
