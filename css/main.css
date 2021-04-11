@@ -5,9 +5,21 @@ html {
     position  : relative;
 }
 
-body {
+body * {
     font-family: 'Roboto', sans-serif;
-    color      : white;
+    color      : black;
+}
+
+.darkTheme body * {
+    color: white;
+}
+
+.col label {
+    color: black;
+}
+
+.darkTheme .col label {
+    color: white;
 }
 
 .brand-logo,
@@ -20,7 +32,6 @@ textarea {
     min-height: 200px;
     resize    : vertical;
     border    : 1px solid #26a69a;
-    color     : white;
 }
 
 #encodeDiv {
@@ -32,8 +43,10 @@ textarea {
 }
 
 .darkTheme,
-.darkTheme .sidenav {
+.darkTheme .sidenav,
+.darkTheme .sidenav a {
     background-color: #111413 !important;
+    color           : white !important;
 }
 
 .tabs.tabs-transparent .tab a:hover,
@@ -78,16 +91,17 @@ textarea {
     line-height: 25px !important;
 }
 
-.col label {
-    color: white;
-}
 
 .col>label {
-    display            : block;
-    margin-block-start : 1em;
-    margin-block-end   : 1em;
-    margin-inline-start: 0px;
-    margin-inline-end  : 0px;
+    display              : block;
+    -webkit-margin-before: 1em;
+    margin-block-start   : 1em;
+    -webkit-margin-after : 1em;
+    margin-block-end     : 1em;
+    -webkit-margin-start : 0px;
+    margin-inline-start  : 0px;
+    -webkit-margin-end   : 0px;
+    margin-inline-end    : 0px;
 }
 
 @media only screen and (min-width: 1201px) {
